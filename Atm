@@ -1,0 +1,83 @@
+import java.util.*;
+public class ATM{
+    public static void main(String [] args){
+        int balance =100000,withDraw,deposit,pin=1234,pinNumber;
+        Scanner sc=new Scanner (System.in);
+        while(true){
+            System.out.println("ATM machine");
+            System.out.println(" choose 1 to withDraw");
+            System.out.println("choose 2 to deposite");
+            System.out.println("choose 3 to check balance");
+            System.out.println("choose  4 for EXIT");
+            System.out.println("Enter your choice");
+             int choice=sc.nextInt();
+             switch(choice){
+                 case 1 :
+                    
+                     System.out.println("enter amount for withdraw");
+                     withDraw=sc.nextInt();
+                      System.out.println("enter your pin");
+                      pinNumber = sc.nextInt();
+                     if(pin==pinNumber){
+                     if(withDraw%100==0){
+                     if(withDraw<=balance){
+                         balance=balance-withDraw;
+                         System.out.println("please collect your money");
+                         System.out.println(" remaining balance = "+balance);
+                         }else 
+                         System.out.println("insufficent balance");
+                         System.out.println();
+                     }else 
+                     System.out.println("Invalid Amount");
+                     }
+                     else 
+                     System.out.println("enter correct pin");
+                         break;
+                         case 2:
+                             System.out.println("Enter amount to deposite");
+                             deposit=sc.nextInt();
+                             if(deposit%100==0){
+                             System.out.println("enter number of hundred notes");
+                             int hundredNotes=sc.nextInt();
+                              System.out.println("enter number of twoHundred notes");
+                               int twoHundred=sc.nextInt();
+                                System.out.println("enter number of fiveHundred notes");
+                                int fiveHundred=sc.nextInt();
+         int total=(hundredNotes*100)+(twoHundred*200)+(fiveHundred*500);
+         System.out.println("enter your pin");
+                     pinNumber = sc.nextInt();
+                     if(pin==pinNumber){
+                         if (deposit==total)
+                         {
+                             balance=balance+deposit;
+                             System.out.println("depostie success");
+                             System.out.println("balance = "+balance);
+                         }
+                         else
+                         System.out.println("entered notes not matched with deposit ");
+                     }
+                     else 
+                     System.out.println("enter correct pin");
+                                 
+                             }else
+                             System.out.println("invalid amount");
+                    
+                             break;
+                             case 3:
+                                 System.out.println("enter your pin");
+                      pinNumber = sc.nextInt();
+                     if(pin==pinNumber){
+                                 System.out.println("balance = "+balance);
+                                 System.out.println();
+                     }
+                     else 
+                     System.out.println("enter correct pin");
+                        
+                        
+                                 break;
+                          case 4: System.exit(0);
+                          
+             }
+        }
+    }
+}
